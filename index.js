@@ -7,15 +7,17 @@ const appSettings = {
 
 const app = initializeApp(appSettings)
 const database = getDatabase(app)
-const fromElDB = ref(database, "From")
-const toElDB = ref(database, "To")
 const mainElDB = ref(database, "Main")
+const mainEl = document.getElementById("main-input-el")
+const btnEl = document.getElementById("btn-el")
+const listEl = document.getElementById("list-el")
 
-let fromEl = document.getElementById('from-el')
-let toEl = document.getElementById('to-el')
-let mainEl = document.getElementById('main-input-el').value
-let btnEl = document.getElementById('btn-el')
-let endorseEl = document.getElementById('endorse-el')
+
+
+// const fromElDB = ref(database, "From")
+// const toElDB = ref(database, "To")
+// let fromEl = document.getElementById('from-el')
+// let toEl = document.getElementById('to-el')
 
 
 btnEl.addEventListener('click', function(){
@@ -38,33 +40,27 @@ onValue(mainElDB, function(snapshot) {
         let currentItemValue = currentItem[1]
         
         appendItemToMainDB(currentItem)
+        
     }}else{
-        endorseDiv.innerHTML += `<p>No Items Here...... Yet</p>`
+        let p = document.createElement("p")
+        p.textContent = "No Items Here...... Yet"
+        document.body.appendChild(p)
     }
 })
 
-function endorseElClear() {
-    endorseEl.innerHTML = ""
+function listElClear() {
+    listEl.innerHTML = ""
 }
 
 function mainElIClear() {
-    mainEl = ' '
+    mainEl.value = ''
     
 }
 function appendToMainDB(item) {
     let itemID = item[0]
     let itemValue = item[1]
-
     let newEl = document.createElement("li")
-
     newEl.textContent = itemValue
-
-    newEl.addEventListener("dblclick", function() {
-        let exactLocationOfListItem = ref(database, `Main/${itemID}`)
-
-        remove(exactLocationOfListItem)
-    })
-
-    endorseEl.append(newEl)
+    listEl.append(newEl)
 }
 
