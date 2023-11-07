@@ -4,13 +4,8 @@ html, body {
     background: #1B1924;
     color: #ffffff;
     text-align: center;
-    max-width: 300px;
     font-family: 'Inter', sans-serif;
-}
-
-#freddie{
-    width: 100px;
-    margin: 0 auto;
+    user-select: none;
 }
 
 #btn-el{
@@ -73,25 +68,34 @@ p{
     text-align: center;
     color: #16c2e9;
 }
-
-
+#basement{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 ul {
-    list-style: none;
-    padding: 0;
+    text-align: center;
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
-    max-width: 320px;
-    gap: 10px;
-    
+    list-style: none;
+    padding: 0; 
+    gap: 15px;
+    max-width: 80vw;
 }
 
 ul li {
     background-color: #353049;
-    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.2);
-    text-align: center;
-    flex-grow: 1;
-    font-size: 20px;
+    max-width: 400px;
+    min-width: 250px;
+    font-size: 15px;
     border-radius: 5px;
     padding: 15px;
+}
+
+h3{
+    text-align: start;
+}
+
+h4{
+    text-align: end;
 }

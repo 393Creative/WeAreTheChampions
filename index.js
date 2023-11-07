@@ -22,11 +22,12 @@ btnEl.addEventListener("click", function () {
   let mainInputValue = mainEl.value
   let toInputValue = toEl.value
   let fromInputValue = fromEl.value
-
+  if (mainInputValue){
   push(mainElDB, mainInputValue)
   push(toElDB, toInputValue)
   push(fromElDB, fromInputValue)
-  formClear()
+  formClear()}else{
+    formClear()}
 })
 
   onValue(mainElDB, function (snapshot) {
@@ -67,12 +68,12 @@ function appendToMainDB(from, main, to) {
     const newH3 = document.createElement("h3")
     const newH5 = document.createElement("h4")
   
-    newH3.innerHTML += to
+    newH3.innerHTML += `- ${to}`
     newLiEl.appendChild(newH3)
   
     newLiEl.innerHTML += main
   
-    newH5.innerHTML += from
+    newH5.innerHTML += `Sincerely, ${from}`
     newLiEl.appendChild(newH5)
   
     listEl.insertBefore(newLiEl, mainEl.firstChild)
