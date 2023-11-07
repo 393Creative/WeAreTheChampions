@@ -6,7 +6,16 @@ html, body {
     text-align: center;
     font-family: 'Inter', sans-serif;
     user-select: none;
+    overflow: hidden;
 }
+
+#icon{
+    width: 150px;
+    box-shadow: #5e577c 0px 8px 25px; 
+    border-radius: 15px;
+    background: #ffffff;
+}
+
 
 #btn-el{
     width: 300px;
